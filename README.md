@@ -1,7 +1,5 @@
 - 누가봐도 읽기 쉬운 코드를 지향하려고 합니다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4b65d94b-debc-4cf5-8338-a62df51021cf/KakaoTalk_20200227_142153848.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4b65d94b-debc-4cf5-8338-a62df51021cf/KakaoTalk_20200227_142153848.jpg)
-
 이름 : 양승민
 
 나이 : 31살(90년생)
