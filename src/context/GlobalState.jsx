@@ -26,7 +26,7 @@ const GlobalState = ({ children }) => {
       case 'data':
         dispatch({
           type: SET_DATA,
-          payload: 1,
+          payload: '입력완료',
         });
         break;
       default:

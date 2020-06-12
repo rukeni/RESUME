@@ -1,37 +1,29 @@
 import React from 'react';
 
 import Data from '../context/globalContext';
+import Header from '../components/Header';
+import Card from '../domain/Home/Card';
+import Footer from '../components/Footer';
+import PageContainer from '../components/PageContainer';
 
 const index = () => (
-  <div classNameName="bg-red-500">
-    Home
+  <>
     <Data.Consumer>
       { ({ data, isLightMode, handleClick }) => (
-        <div
-          className={`flex flex-col w-full min-h-screen ${isLightMode ? '' : 'bg-black opacity-75 text-white'}`}
-          style={{
-            transition: 'all .5s ease-in-out',
-          }}
+        <PageContainer
+          isLightMode={isLightMode}
         >
-          <button
-            type="button"
-            data-type="data"
-            onClick={handleClick}
-          >
-            { data || '입력없음' }
-          </button>
-          <button
-            type="button"
-            data-type="toggle"
-            onClick={handleClick}
-          >
-            {isLightMode ? '라이트 모드' : '다크 모드'}
-          </button>
-        </div>
+          <Header
+            data={data}
+            isLightMode={isLightMode}
+            handleClick={handleClick}
+          />
+          <Card />
+          <Footer />
+        </PageContainer>
       )}
-
     </Data.Consumer>
-  </div>
+  </>
 );
 
 export default index;
