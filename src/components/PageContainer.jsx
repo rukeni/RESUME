@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 
 const PageContainer = ({ children, isLightMode }) => (
   <div
-    className={`flex flex-col justify-center items-center w-full min-h-screen ${isLightMode ? '' : 'bg-black opacity-75 text-white'}`}
+    className={`flex flex-col justify-center items-center z-20 w-full relative min-h-screen ${isLightMode ? '' : 'text-white'}`}
     style={{
       transition: 'all .5s ease-in-out',
+      backgroundColor: isLightMode ? 'transparent' : '#222',
     }}
   >
-    {children}
+    { children }
   </div>
 );
 

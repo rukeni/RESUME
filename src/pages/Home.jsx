@@ -6,7 +6,7 @@ import Card from '../domain/Home/Card';
 import Footer from '../components/Footer';
 import PageContainer from '../components/PageContainer';
 
-const index = () => (
+const Home = () => (
   <>
     <Data.Consumer>
       { ({ isLightMode, handleClick }) => (
@@ -25,4 +25,4 @@ const index = () => (
   </>
 );
 
-export default index;
+export default Home;

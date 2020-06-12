@@ -22,6 +22,7 @@ module.exports = {
     'react',
   ],
   rules: {
-    "no-param-reassign": 0
+    "no-param-reassign": 0,
+    'linebreak-style': 0,
   },
 };

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import GlobalContext from './globalContext';
 import globalReducer from './globalReducer';
-import { SET_DATA, SET_IS_LIGHT_MODE } from './types';
+import { SET_IS_LIGHT_MODE } from './types';
 
 const GlobalState = ({ children }) => {
   const initialState = {
@@ -21,12 +21,6 @@ const GlobalState = ({ children }) => {
       case 'toggle':
         dispatch({
           type: SET_IS_LIGHT_MODE,
-        });
-        break;
-      case 'data':
-        dispatch({
-          type: SET_DATA,
-          payload: '입력완료',
         });
         break;
       default:

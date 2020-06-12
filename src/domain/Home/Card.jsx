@@ -12,7 +12,19 @@ const Card = () => (
     >
       적용
     </button>
-    <span>인간의 욕심은 끝이 없고... 나의 욕심도 끝이 없다</span>
+    <span className="text-6xl">인간의 욕심은 끝이 없고... 나의 욕심도 끝이 없다</span>
+    <div
+      className="absolute z-10 opacity-0 hover:opacity-100"
+      style={{
+        width: '32%',
+        height: '50%',
+        transition: 'all .5s ease-in-out',
+        top: '50%',
+        right: '50%',
+        margin: '0 auto',
+        background: 'linear-gradient(220deg, #3d45b1, #844efc)',
+      }}
+    />
   </div>
 );
 
