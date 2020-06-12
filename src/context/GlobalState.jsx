@@ -4,25 +4,40 @@ import PropTypes from 'prop-types';
 
 import GlobalContext from './globalContext';
 import globalReducer from './globalReducer';
-import { SET_DATA } from './types';
+import { SET_DATA, SET_IS_LIGHT_MODE } from './types';
 
 const GlobalState = ({ children }) => {
   const initialState = {
     data: null,
+    isLightMode: true,
   };
   const [state, dispatch] = useReducer(globalReducer, initialState);
 
   const handleClick = (e) => {
     e.preventDefault();
-    dispatch({
-      type: SET_DATA,
-      payload: 1,
-    });
+    const { type } = e.target.dataset;
+
+    switch (type) {
+      case 'toggle':
+        dispatch({
+          type: SET_IS_LIGHT_MODE,
+        });
+        break;
+      case 'data':
+        dispatch({
+          type: SET_DATA,
+          payload: 1,
+        });
+        break;
+      default:
+        break;
+    }
   };
   return (
     <GlobalContext.Provider
       value={{
         data: state.data,
+        isLightMode: state.isLightMode,
         handleClick,
       }}
     >

@@ -232,6 +232,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'Noto Sans KR',
         'system-ui',
         '-apple-system',
         'BlinkMacSystemFont',
