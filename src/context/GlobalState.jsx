@@ -16,6 +16,7 @@ const GlobalState = ({ children }) => {
     e.preventDefault();
     dispatch({
       type: SET_DATA,
+      payload: 1,
     });
   };
   return (
@@ -32,9 +33,9 @@ const GlobalState = ({ children }) => {
 };
 
 GlobalState.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.objectOf(PropTypes.any),
 };
 GlobalState.defaultProps = {
-  children: '',
+  children: {},
 };
 export default GlobalState;

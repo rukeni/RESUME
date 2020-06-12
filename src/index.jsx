@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 
 import './styles/tailwind.css';
 import App from './pages';
+import GlobalProvider from './context/GlobalState';
 
 console.log('%c 리액트 컴포넌트 생성', 'color: blue; font-size: 1.5rem;');
 console.time('앱 시작시간');
 ReactDOM.render(
   <>
-    <App />
+    <GlobalProvider>
+      <App />
+    </GlobalProvider>
   </>,
   document.getElementById('root'),
 );
