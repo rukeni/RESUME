@@ -1,5 +1,7 @@
 import produce from 'immer';
-import { SET_DATA, SET_IS_LIGHT_MODE } from './types';
+import {
+  SET_DATA, SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN,
+} from './types';
 
 export default (state, action) => produce(state, (draft) => {
   switch (action.type) {
@@ -13,7 +15,17 @@ export default (state, action) => produce(state, (draft) => {
       draft.isLightMode = !state.isLightMode;
       break;
     }
-
+    case SET_AUTH:
+    {
+      const { property, value } = action.payload;
+      draft.login[property] = value;
+      break;
+    }
+    case SET_IS_LOGIN:
+    {
+      draft.isLogin = true;
+      break;
+    }
     default:
       break;
   }
