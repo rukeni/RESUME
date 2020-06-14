@@ -18076,7 +18076,7 @@ input:focus::placeholder {
   display: block;
   font-size: 14px;
   line-height: 28px;
-  color: #979696;
+  color: #fff;
   cursor: pointer;
   transition: 0.5s color;
 }

@@ -10,9 +10,9 @@ const Toggle = ({ isLightMode, handleClick }) => (
     className={`flex-1 w-full border-box flex justify-center items-center switch ${isLightMode ? 'on' : ''}`}
     onClick={handleClick}
   >
-    <label>다크 모드</label>
+    <label>다크 모드로 변경</label>
     <div className="knob" />
-    <label>라이트 모드</label>
+    <label>라이트 모드 로 변경</label>
   </button>
 );
 
