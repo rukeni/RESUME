@@ -6,7 +6,7 @@ import './styles/tailwind.css';
 import App from './pages';
 import Login from './pages/Login';
 import Portfolio from './pages/Portfolio';
-import Data from './context/globalContext';
+import Global from './context/globalContext';
 import GlobalProvider from './context/GlobalState';
 import PageContainer from './components/PageContainer';
 import Header from './components/Header';
@@ -16,7 +16,7 @@ console.log('%c 리액트 컴포넌트 생성', 'color: blue; font-size: 1.5rem;
 console.time('앱 시작시간');
 ReactDOM.render(
   <GlobalProvider>
-    <Data.Consumer>
+    <Global.Consumer>
       { ({ isLogin, isLightMode, handleClick }) => (
         <PageContainer
           isLightMode={isLightMode}
@@ -27,6 +27,7 @@ ReactDOM.render(
                 <Header
                   isLightMode={isLightMode}
                   handleClick={handleClick}
+                  isLogin={isLogin}
                 />
                 <Redirect to="/" />
                 <Route exact path="/" component={Portfolio} />
@@ -37,6 +38,7 @@ ReactDOM.render(
                 <Header
                   isLightMode={isLightMode}
                   handleClick={handleClick}
+                  isLogin={isLogin}
                 />
                 <Route exact path="/" component={App} />
                 <Route exact path="/login" component={Login} />
@@ -45,7 +47,7 @@ ReactDOM.render(
           <Footer />
         </PageContainer>
       )}
-    </Data.Consumer>
+    </Global.Consumer>
   </GlobalProvider>,
   document.getElementById('root'),
 );
