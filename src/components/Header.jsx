@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
+import Toggle from './Toggle';
 
 const Header = ({ isLogin, isLightMode, handleClick }) => (
   <div className="flex flex-4 w-full justify-around sticky">
@@ -30,15 +31,10 @@ const Header = ({ isLogin, isLightMode, handleClick }) => (
         )}
 
     </div>
-
-    <button
-      className="flex-1 w-full border-box"
-      type="button"
-      data-type="toggle"
-      onClick={handleClick}
-    >
-      {isLightMode ? '다크 모드' : '라이트 모드'}
-    </button>
+    <Toggle
+      isLightMode={isLightMode}
+      handleClick={handleClick}
+    />
   </div>
 );
 

@@ -22,7 +22,7 @@ const LoginCard = () => (
             </div>
             <div className="md:w-2/3">
               <input
-                className="font-sans bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-transparent focus:border-purple-500"
+                className="font-sans text-black bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-transparent focus:border-purple-500"
                 id="login-id"
                 type="text"
                 value={login.id}

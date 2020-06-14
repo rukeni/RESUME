@@ -36,10 +36,11 @@ const GlobalState = ({ children }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    const { type } = e.target.dataset;
+    const { type } = e.currentTarget.dataset;
 
     switch (type) {
       case 'toggle':
+        console.log('토글발생');
         dispatch({
           type: SET_IS_LIGHT_MODE,
         });
