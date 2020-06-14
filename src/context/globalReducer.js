@@ -24,7 +24,7 @@ export default (state, action) => produce(state, (draft) => {
     case SET_IS_LOGIN:
     {
       if (state.login.id && state.login.password) {
-        draft.isLogin = true;
+        draft.isLogin = !state.isLogin;
         console.log('%c login성공', 'color: red; font-weight: 900;');
       }
       break;
