@@ -15,10 +15,7 @@ const PageContainer = ({ children, isLightMode }) => (
 );
 
 PageContainer.propTypes = {
-  children: PropTypes.objectOf(PropTypes.any),
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
   isLightMode: PropTypes.bool.isRequired,
-};
-PageContainer.defaultProps = {
-  children: {},
 };
 export default PageContainer;

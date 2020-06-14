@@ -7,6 +7,7 @@ import globalReducer from './globalReducer';
 import { SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN } from './types';
 
 const GlobalState = ({ children }) => {
+  console.log('children :>> ', children);
   const initialState = {
     data: null,
     isLightMode: true,
@@ -43,6 +44,11 @@ const GlobalState = ({ children }) => {
           type: SET_IS_LIGHT_MODE,
         });
         break;
+      case 'logout':
+        dispatch({
+          type: SET_IS_LOGIN,
+        });
+        break;
       default:
         break;
     }
@@ -72,9 +78,7 @@ const GlobalState = ({ children }) => {
 };
 
 GlobalState.propTypes = {
-  children: PropTypes.objectOf(PropTypes.any),
+  children: PropTypes.element.isRequired,
 };
-GlobalState.defaultProps = {
-  children: {},
-};
+
 export default GlobalState;
