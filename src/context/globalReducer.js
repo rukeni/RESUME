@@ -1,6 +1,6 @@
 import produce from 'immer';
 import {
-  SET_DATA, SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN,
+  SET_DATA, SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER,
 } from './types';
 
 export default (state, action) => produce(state, (draft) => {
@@ -26,6 +26,16 @@ export default (state, action) => produce(state, (draft) => {
       if (state.login.id && state.login.password) {
         draft.isLogin = !state.isLogin;
         console.log('%c login성공', 'color: red; font-weight: 900;');
+      }
+      break;
+    }
+    case SET_IS_HOVER:
+    {
+      const type = action.payload;
+      if (type === 'mouseOver') {
+        draft.isHover = true;
+      } else {
+        draft.isHover = false;
       }
       break;
     }

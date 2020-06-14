@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 
 import GlobalContext from './globalContext';
 import globalReducer from './globalReducer';
-import { SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN } from './types';
+import {
+  SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER,
+} from './types';
 
 const GlobalState = ({ children }) => {
   console.log('children :>> ', children);
@@ -16,6 +18,7 @@ const GlobalState = ({ children }) => {
       password: '',
     },
     isLogin: false,
+    isHover: false,
   };
   const [state, dispatch] = useReducer(globalReducer, initialState);
 
@@ -60,6 +63,30 @@ const GlobalState = ({ children }) => {
       type: SET_IS_LOGIN,
     });
   };
+  const handleMouseOver = (e) => {
+    const { ref } = e.target.dataset;
+    console.log('mouseover');
+    console.log('ref :>> ', ref);
+    dispatch({
+      type: SET_IS_HOVER,
+      payload: 'mouseOver',
+    });
+    // e.target.play();
+    // e.preventDefault();
+  };
+  const handleMouseOut = (e) => {
+    const { ref } = e.target.dataset;
+    console.dir('ref :>> ', ref);
+    ref.current.pause();
+    console.log('mouseout');
+    console.log('state.isHover :>> ', state.isHover);
+    // e.target.pause();
+    // e.preventDefault();
+    dispatch({
+      type: SET_IS_HOVER,
+      payload: 'mouseOut',
+    });
+  };
   return (
     <GlobalContext.Provider
       value={{
@@ -70,6 +97,8 @@ const GlobalState = ({ children }) => {
         handleClick,
         handleChange,
         handleSubmit,
+        handleMouseOver,
+        handleMouseOut,
       }}
     >
       {children}
