@@ -17887,6 +17887,57 @@ video {
   height: 100%;
 }
 
+input::-moz-placeholder {
+  font-family: 'Noto Sans KR';
+  color: black;
+}
+
+input:-ms-input-placeholder {
+  font-family: 'Noto Sans KR';
+  color: black;
+}
+
+input::-ms-input-placeholder {
+  font-family: 'Noto Sans KR';
+  color: black;
+}
+
+input::placeholder {
+  font-family: 'Noto Sans KR';
+  color: black;
+}
+
+input:focus::-moz-placeholder {
+  transform: scale(0.6) translate(-40%, -30%);
+  -moz-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  color: #667eea;
+  font-family: 'Noto Sans KR';
+}
+
+input:focus:-ms-input-placeholder {
+  transform: scale(0.6) translate(-40%, -30%);
+  -ms-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  color: #667eea;
+  font-family: 'Noto Sans KR';
+}
+
+input:focus::-ms-input-placeholder {
+  transform: scale(0.6) translate(-40%, -30%);
+  -ms-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  color: #667eea;
+  font-family: 'Noto Sans KR';
+}
+
+input:focus::placeholder {
+  transform: scale(0.6) translate(-40%, -30%);
+  transition: all .5s ease-in-out;
+  color: #667eea;
+  font-family: 'Noto Sans KR';
+}
+
 @media (min-width: 640px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;

@@ -11,8 +11,8 @@ const GlobalState = ({ children }) => {
     data: null,
     isLightMode: true,
     login: {
-      id: null,
-      password: null,
+      id: '',
+      password: '',
     },
     isLogin: false,
   };
@@ -21,6 +21,9 @@ const GlobalState = ({ children }) => {
   const handleChange = (e) => {
     const { property } = e.target.dataset;
     const { value } = e.target;
+    console.log('value', value);
+    console.log('property :>> ', property);
+    console.log('state.login :>> ', state.login);
     dispatch({
       type: SET_AUTH,
       payload: {

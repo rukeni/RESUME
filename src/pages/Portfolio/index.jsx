@@ -1,9 +1,11 @@
 import React from 'react';
 
+import PortfolioCard from '../../domain/Portfolio/PortfolioCard';
+
 const index = () => (
-  <div>
-    포트폴리오
-  </div>
+  <>
+    <PortfolioCard />
+  </>
 );
 
 export default index;

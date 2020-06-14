@@ -14,7 +14,7 @@ const Header = ({ isLightMode, handleClick }) => (
       <Link
         to="/login"
       >
-        로그인
+        포트폴리오 보기
       </Link>
     </div>
 
