@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Toggle from './Toggle';
 
-const Header = ({ isLogin, isLightMode, handleClick }) => (
+const Header = ({
+  isLogin, isLightMode, handleClick, LoginName,
+}) => (
   <div className="flex flex-4 w-full justify-around sticky">
     <div
       className="flex-1 w-full border-box hover:text-indigo-500 text-center"
@@ -31,6 +33,16 @@ const Header = ({ isLogin, isLightMode, handleClick }) => (
         )}
 
     </div>
+    { isLogin ? (
+      <p
+        className="flex-1 w-full border-box flex justify-center items-center"
+      >
+        { `반갑습니다. ${LoginName}님` }
+        {' '}
+        &#128526;
+      </p>
+    ) : ''}
+
     <Toggle
       isLightMode={isLightMode}
       handleClick={handleClick}
@@ -42,6 +54,10 @@ Header.propTypes = {
   isLightMode: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired,
   isLogin: PropTypes.bool.isRequired,
+  LoginName: PropTypes.string,
 };
 
+Header.defaultProps = {
+  LoginName: '',
+};
 export default Header;

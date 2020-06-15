@@ -17,7 +17,9 @@ console.time('앱 시작시간');
 ReactDOM.render(
   <GlobalProvider>
     <Global.Consumer>
-      { ({ isLogin, isLightMode, handleClick }) => (
+      { ({
+        isLogin, isLightMode, handleClick, login,
+      }) => (
         <PageContainer
           isLightMode={isLightMode}
         >
@@ -28,6 +30,7 @@ ReactDOM.render(
                   isLightMode={isLightMode}
                   handleClick={handleClick}
                   isLogin={isLogin}
+                  LoginName={login.id}
                 />
                 <Redirect to="/" />
                 <Route exact path="/" component={Portfolio} />
@@ -39,6 +42,7 @@ ReactDOM.render(
                   isLightMode={isLightMode}
                   handleClick={handleClick}
                   isLogin={isLogin}
+                  LoginName={login.id}
                 />
                 <Route exact path="/" component={App} />
                 <Route exact path="/login" component={Login} />

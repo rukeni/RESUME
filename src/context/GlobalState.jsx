@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import GlobalContext from './globalContext';
 import globalReducer from './globalReducer';
 import {
-  SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER,
+  SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_SLIDER,
 } from './types';
 
 const GlobalState = ({ children }) => {
@@ -64,9 +64,10 @@ const GlobalState = ({ children }) => {
     });
   };
   const handleMouseOver = (e) => {
-    const { ref } = e.target.dataset;
+    // e.preventDefault();
+    // const { type } = e.target.dataset;
     console.log('mouseover');
-    console.log('ref :>> ', ref);
+
     dispatch({
       type: SET_IS_HOVER,
       payload: 'mouseOver',
@@ -75,9 +76,8 @@ const GlobalState = ({ children }) => {
     // e.preventDefault();
   };
   const handleMouseOut = (e) => {
-    const { ref } = e.target.dataset;
-    console.dir('ref :>> ', ref);
-    ref.current.pause();
+    // const { type } = e.target.dataset;
+    // e.preventDefault();
     console.log('mouseout');
     console.log('state.isHover :>> ', state.isHover);
     // e.target.pause();
@@ -94,6 +94,7 @@ const GlobalState = ({ children }) => {
         isLightMode: state.isLightMode,
         login: state.login,
         isLogin: state.isLogin,
+        isHover: state.isHover,
         handleClick,
         handleChange,
         handleSubmit,

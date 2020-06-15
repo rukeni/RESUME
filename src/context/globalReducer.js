@@ -33,6 +33,7 @@ export default (state, action) => produce(state, (draft) => {
     {
       const type = action.payload;
       if (type === 'mouseOver') {
+        console.log('호버되야함');
         draft.isHover = true;
       } else {
         draft.isHover = false;
