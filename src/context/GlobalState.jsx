@@ -87,6 +87,12 @@ const GlobalState = ({ children }) => {
       payload: 'mouseOut',
     });
   };
+  const handleScroll = (e) => {
+    e.preventDefault();
+    console.log('e.currentTarget.scrollLeft :>> ', e.currentTarget.scrollLeft);
+    console.log('스크롤 이벤트 발생');
+    console.log('window.scrollTop :>> ', window.scrollTop);
+  };
   return (
     <GlobalContext.Provider
       value={{
@@ -100,6 +106,7 @@ const GlobalState = ({ children }) => {
         handleSubmit,
         handleMouseOver,
         handleMouseOut,
+        handleScroll,
       }}
     >
       {children}
