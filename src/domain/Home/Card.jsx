@@ -29,10 +29,10 @@ const Card = () => (
           style={{
             zIndex: '-100',
             position: 'absolute',
-            width: '100%',
-            height: '100%',
+            minWidth: '100vw',
+            minHeight: '100vh',
             transition: 'all .5s ease-in-out',
-            background: 'linear-gradient(220deg, #3d45b1, #844efc)',
+            background: 'linear-gradient(180deg, #3d45b1, #844efc)',
           }}
         />
       </div>

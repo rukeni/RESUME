@@ -87195,3 +87195,12 @@ input:focus::placeholder {
     transition-delay: 1000ms;
   }
 }
+::-moz-selection { /* Code for Firefox */
+  color: #667eea;
+  background: #222;
+}
+
+::selection {
+  color: #667eea;
+  background: #222;
+}

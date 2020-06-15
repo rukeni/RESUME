@@ -10,6 +10,16 @@
   height: 100%;
 }
 
+::-moz-selection { /* Code for Firefox */
+  color: #667eea;
+  background: #222;
+}
+
+::selection {
+  color: #667eea;
+  background: #222;
+}
+
 input::placeholder {
   font-family: 'Noto Sans KR';
   color: black;
