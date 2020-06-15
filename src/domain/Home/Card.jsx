@@ -15,6 +15,9 @@ const Card = () => (
             data-type="hover"
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}
+            style={{
+              transition: 'all .3s ease',
+            }}
           >
             욕심
 
@@ -22,9 +25,9 @@ const Card = () => (
           도 끝이 없다
         </span>
         <div
-          className={`w-full min-h-screen ${isHover ? 'opacity-75' : 'opacity-0'}`}
+          className={`w-full min-h-screen ${isHover ? 'opacity-75' : 'hidden'}`}
           style={{
-            zIndex: '-10',
+            zIndex: '-100',
             position: 'absolute',
             width: '100%',
             height: '100%',

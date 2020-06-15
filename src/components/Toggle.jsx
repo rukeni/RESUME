@@ -7,7 +7,7 @@ const Toggle = ({ isLightMode, handleClick }) => (
   <button
     type="button"
     data-type="toggle"
-    className={`flex-1 w-full border-box flex justify-center items-center switch ${isLightMode ? 'on' : ''}`}
+    className={`flex-1 w-full border-box flex justify-center items-center switch ${isLightMode ? 'on ' : ' '}`}
     onClick={handleClick}
   >
     <label>다크 모드로 변경</label>

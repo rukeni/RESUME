@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import GlobalContext from './globalContext';
 import globalReducer from './globalReducer';
 import {
-  SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_SLIDER,
+  SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER,
 } from './types';
 
 const GlobalState = ({ children }) => {
@@ -64,7 +64,7 @@ const GlobalState = ({ children }) => {
     });
   };
   const handleMouseOver = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     // const { type } = e.target.dataset;
     console.log('mouseover');
 
@@ -77,7 +77,7 @@ const GlobalState = ({ children }) => {
   };
   const handleMouseOut = (e) => {
     // const { type } = e.target.dataset;
-    // e.preventDefault();
+    e.preventDefault();
     console.log('mouseout');
     console.log('state.isHover :>> ', state.isHover);
     // e.target.pause();

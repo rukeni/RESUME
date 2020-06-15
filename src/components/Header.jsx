@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Toggle from './Toggle';
 
 const Header = ({
-  isLogin, isLightMode, handleClick, LoginName,
+  isLogin, isLightMode, handleClick, LoginName, isHover,
 }) => (
   <div className="flex flex-4 w-full justify-around sticky">
     <div
@@ -20,6 +20,7 @@ const Header = ({
             type="button"
             onClick={handleClick}
             data-type="logout"
+            className={isHover ? 'text-white' : ''}
           >
             메인으로
           </button>
@@ -27,6 +28,7 @@ const Header = ({
         : (
           <Link
             to="/login"
+            className={isHover ? 'text-white' : ''}
           >
             포트폴리오 보기
           </Link>
@@ -35,7 +37,7 @@ const Header = ({
     </div>
     { isLogin ? (
       <p
-        className="flex-1 w-full border-box flex justify-center items-center"
+        className={`flex-1 w-full border-box flex justify-center items-center ${isHover ? 'text-white' : ''}`}
       >
         { `반갑습니다. ${LoginName}님` }
         {' '}
@@ -44,6 +46,7 @@ const Header = ({
     ) : ''}
 
     <Toggle
+      isHover={isHover}
       isLightMode={isLightMode}
       handleClick={handleClick}
     />
@@ -54,6 +57,7 @@ Header.propTypes = {
   isLightMode: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired,
   isLogin: PropTypes.bool.isRequired,
+  isHover: PropTypes.bool.isRequired,
   LoginName: PropTypes.string,
 };
 
