@@ -6,6 +6,7 @@ import './styles/tailwind.css';
 import App from './pages';
 import Login from './pages/Login';
 import Portfolio from './pages/Portfolio';
+import Resume from './pages/Resume';
 import Global from './context/globalContext';
 import GlobalProvider from './context/GlobalState';
 import PageContainer from './components/PageContainer';
@@ -34,6 +35,7 @@ ReactDOM.render(
                 />
                 <Redirect to="/" />
                 <Route exact path="/" component={Portfolio} />
+                <Route path="/resume/:year" component={Resume} />
               </Router>
             )
             : (
@@ -46,6 +48,8 @@ ReactDOM.render(
                 />
                 <Route exact path="/" component={App} />
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/resume" component={Resume} />
+                <Route path="/resume/:year" component={Resume} />
               </Router>
             ) }
           <Footer />
