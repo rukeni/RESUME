@@ -2,10 +2,11 @@ import React, { useReducer } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 
+import { Redirect } from 'react-router';
 import GlobalContext from './globalContext';
 import globalReducer from './globalReducer';
 import {
-  SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER,
+  SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_URL,
 } from './types';
 
 const GlobalState = ({ children }) => {
@@ -19,9 +20,11 @@ const GlobalState = ({ children }) => {
     },
     isLogin: false,
     isHover: false,
+    url: '/resume',
   };
   const [state, dispatch] = useReducer(globalReducer, initialState);
 
+  const redirect = () => <Redirect to={state.url} />;
   const handleChange = (e) => {
     const { property } = e.target.dataset;
     const { value } = e.target;
@@ -39,7 +42,7 @@ const GlobalState = ({ children }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    const { type } = e.currentTarget.dataset;
+    const { type, url } = e.currentTarget.dataset;
 
     switch (type) {
       case 'toggle':
@@ -52,6 +55,14 @@ const GlobalState = ({ children }) => {
         dispatch({
           type: SET_IS_LOGIN,
         });
+        break;
+      case 'navigate':
+        console.log('navigate');
+        dispatch({
+          type: SET_URL,
+          payload: url,
+        });
+        redirect();
         break;
       default:
         break;

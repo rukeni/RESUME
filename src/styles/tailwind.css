@@ -17887,6 +17887,16 @@ video {
   height: 100%;
 }
 
+::-moz-selection { /* Code for Firefox */
+  color: #667eea;
+  background: #222;
+}
+
+::selection {
+  color: #667eea;
+  background: #222;
+}
+
 input::-moz-placeholder {
   font-family: 'Noto Sans KR';
   color: black;
@@ -87194,13 +87204,4 @@ input:focus::placeholder {
   .xl\:delay-1000 {
     transition-delay: 1000ms;
   }
-}
-::-moz-selection { /* Code for Firefox */
-  color: #667eea;
-  background: #222;
-}
-
-::selection {
-  color: #667eea;
-  background: #222;
 }
