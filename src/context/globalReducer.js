@@ -7,7 +7,9 @@ export default (state, action) => produce(state, (draft) => {
   switch (action.type) {
     case SET_DATA:
     {
-      draft.data = action.payload;
+      const { property, data } = action.payload;
+      console.log('reducer setData');
+      draft.data[property] = data;
       break;
     }
     case SET_IS_LIGHT_MODE:

@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Portfolio from './pages/Portfolio';
 import Resume from './pages/Resume';
 import ResumeContents from './pages/Resume/Resume';
+import Dashboard from './pages/Dashboard';
 import Global from './context/globalContext';
 import GlobalProvider from './context/GlobalState';
 import PageContainer from './components/PageContainer';
@@ -35,7 +36,7 @@ ReactDOM.render(
                   LoginName={login.id}
                 />
                 <Redirect to="/" />
-                <Route exact path="/" component={Portfolio} />
+                <Route exact path="/" component={Dashboard} />
                 <Route exact path="/resume">
                   <Redirect to="/resume/1990" />
                 </Route>
@@ -43,6 +44,12 @@ ReactDOM.render(
                   <Resume>
                     <ResumeContents />
                   </Resume>
+                </Route>
+                <Route path="/dashboard">
+                  <Dashboard />
+                </Route>
+                <Route path="/portfolio">
+                  <Portfolio />
                 </Route>
               </Router>
             )
@@ -54,7 +61,7 @@ ReactDOM.render(
                   isLogin={isLogin}
                   LoginName={login.id}
                 />
-                <Route exact path="/" component={App} />
+                <Route exact path="/" component={Dashboard} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/resume">
                   <Redirect to="/resume/1990" />

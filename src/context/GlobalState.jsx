@@ -2,17 +2,20 @@ import React, { useReducer } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 
-import { Redirect } from 'react-router';
 import GlobalContext from './globalContext';
 import globalReducer from './globalReducer';
 import {
   SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_URL,
 } from './types';
+import { readData } from './apiRequest';
 
 const GlobalState = ({ children }) => {
   console.log('children :>> ', children);
   const initialState = {
-    data: null,
+    data: {
+      wakatime: null,
+      github: null,
+    },
     isLightMode: true,
     login: {
       id: '',
@@ -24,7 +27,10 @@ const GlobalState = ({ children }) => {
   };
   const [state, dispatch] = useReducer(globalReducer, initialState);
 
-  const redirect = () => <Redirect to={state.url} />;
+  const getData = () => {
+    console.log('getData까지는 옴');
+    readData(dispatch);
+  };
   const handleChange = (e) => {
     const { property } = e.target.dataset;
     const { value } = e.target;
@@ -62,7 +68,6 @@ const GlobalState = ({ children }) => {
           type: SET_URL,
           payload: url,
         });
-        redirect();
         break;
       default:
         break;
@@ -112,6 +117,7 @@ const GlobalState = ({ children }) => {
         login: state.login,
         isLogin: state.isLogin,
         isHover: state.isHover,
+        getData,
         handleClick,
         handleChange,
         handleSubmit,
