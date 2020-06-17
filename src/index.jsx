@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import './styles/tailwind.css';
-import App from './pages';
+// import App from './pages';
 import Login from './pages/Login';
 import Portfolio from './pages/Portfolio';
-import Resume from './pages/Resume';
-import ResumeContents from './pages/Resume/Resume';
+
 import Dashboard from './pages/Dashboard';
 import Global from './context/globalContext';
 import GlobalProvider from './context/GlobalState';
@@ -37,14 +36,6 @@ ReactDOM.render(
                 />
                 <Redirect to="/" />
                 <Route exact path="/" component={Dashboard} />
-                <Route exact path="/resume">
-                  <Redirect to="/resume/1990" />
-                </Route>
-                <Route path="/resume/:year">
-                  <Resume>
-                    <ResumeContents />
-                  </Resume>
-                </Route>
                 <Route path="/dashboard">
                   <Dashboard />
                 </Route>
@@ -63,14 +54,6 @@ ReactDOM.render(
                 />
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/login" component={Login} />
-                <Route exact path="/resume">
-                  <Redirect to="/resume/1990" />
-                </Route>
-                <Route path="/resume/:year">
-                  <Resume>
-                    <ResumeContents />
-                  </Resume>
-                </Route>
               </Router>
             ) }
           <Footer />
