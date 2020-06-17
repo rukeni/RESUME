@@ -3,16 +3,19 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import './styles/tailwind.css';
-// import App from './pages';
-import Login from './pages/Login';
-import Portfolio from './pages/Portfolio';
 
-import Dashboard from './pages/Dashboard';
 import Global from './context/globalContext';
 import GlobalProvider from './context/GlobalState';
 import PageContainer from './components/PageContainer';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
+
+// import App from './pages';
+import Login from './pages/Login';
+import Portfolio from './pages/Portfolio';
+import Dashboard from './pages/Dashboard';
+import Email from './pages/Email';
 
 console.log('%c 리액트 컴포넌트 생성', 'color: blue; font-size: 1.5rem;');
 console.time('앱 시작시간');
@@ -36,6 +39,7 @@ ReactDOM.render(
                 />
                 <Redirect to="/" />
                 <Route exact path="/" component={Dashboard} />
+                <Route exact path="/email" component={Email} />
                 <Route path="/dashboard">
                   <Dashboard />
                 </Route>
@@ -53,6 +57,7 @@ ReactDOM.render(
                   LoginName={login.id}
                 />
                 <Route exact path="/" component={Dashboard} />
+                <Route exact path="/email" component={Email} />
                 <Route exact path="/login" component={Login} />
               </Router>
             ) }
