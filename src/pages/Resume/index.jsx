@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, useRouteMatch, Switch, Route } from 'react-router-dom';
+import Resume from './Resume';
 
 const index = ({ children }) => {
   const history = [
@@ -29,7 +30,12 @@ const index = ({ children }) => {
           ))}
         </ul>
       </>
-      {children}
+      { children }
+      <Switch>
+        <Route path={`${url}/:id`}>
+          <Resume />
+        </Route>
+      </Switch>
     </div>
   );
 };

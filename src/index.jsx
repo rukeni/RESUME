@@ -39,7 +39,7 @@ ReactDOM.render(
                 <Route exact path="/resume">
                   <Redirect to="/resume/1990" />
                 </Route>
-                <Route path="/resume/:year" component={Resume}>
+                <Route path="/resume/:year">
                   <Resume>
                     <ResumeContents />
                   </Resume>
@@ -56,8 +56,10 @@ ReactDOM.render(
                 />
                 <Route exact path="/" component={App} />
                 <Route exact path="/login" component={Login} />
-                <Route exact path="/resume" component={Resume} />
-                <Route path="/resume/:year" component={Resume}>
+                <Route exact path="/resume">
+                  <Redirect to="/resume/1990" />
+                </Route>
+                <Route path="/resume/:year">
                   <Resume>
                     <ResumeContents />
                   </Resume>

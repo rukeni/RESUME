@@ -21,35 +21,6 @@ const Resume = () => {
   return (
     <>
       <div>
-        카드 뉴스형식의 자기소개서
-        <Data.Consumer>
-          {({ handleClick }) => (
-            <>
-              <ul>
-                { history.map((el) => (
-                  <>
-                    <span key={el.year}>
-                      <Link to={`${url}/${el.year}`}>
-                        {' '}
-                        { el.year }
-                        {' '}
-                      </Link>
-                    </span>
-                    <button
-                      type="button"
-                      data-url={el.year}
-                      className="bg-indigo-700"
-                      data-type="navigate"
-                      onClick={handleClick}
-                    >
-                      {el.year}
-                    </button>
-                  </>
-                ))}
-              </ul>
-            </>
-          )}
-        </Data.Consumer>
         <p>
           { year ? (
             `${year}년`) : '연도를 입력하세요' }
@@ -60,11 +31,6 @@ const Resume = () => {
           ) : ''}
 
         </p>
-        <Switch>
-          <Route path={`${url}/:id`}>
-            <Resume />
-          </Route>
-        </Switch>
       </div>
 
     </>
