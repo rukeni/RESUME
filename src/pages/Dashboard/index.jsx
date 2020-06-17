@@ -1,22 +1,25 @@
 import React, { useContext } from 'react';
-import Axios from 'axios';
 import globalContext from '../../context/globalContext';
 
 const index = () => {
   const GlobalContext = useContext(globalContext);
   const {
-    data, getData,
+    data, getData, getContributions,
   } = GlobalContext;
   React.useEffect(() => {
     if (!data.wakatime && !data.github) {
       getData();
     }
+    getContributions('a712dbd48676f850f16edfdfdc9fb2467c66dd83', 'rukeni')
+      .then((gql) => {
+        console.log('gql gql:>> ', gql);
+      });
     // const res = Axios.get('https://api.github.com/users/rukeni')
     //   .then((c) => {
     //     console.log(c);
     //   });
     // console.log('res :>> ', res);
-  });
+  }, []);
   // "grand_total": {
   //               "digital": "0:00",
   //               "hours": 0,

@@ -7,7 +7,7 @@ import globalReducer from './globalReducer';
 import {
   SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_URL,
 } from './types';
-import { readData } from './apiRequest';
+import { readData, getContributions } from './apiRequest';
 
 const GlobalState = ({ children }) => {
   console.log('children :>> ', children);
@@ -118,6 +118,7 @@ const GlobalState = ({ children }) => {
         isLogin: state.isLogin,
         isHover: state.isHover,
         getData,
+        getContributions,
         handleClick,
         handleChange,
         handleSubmit,
