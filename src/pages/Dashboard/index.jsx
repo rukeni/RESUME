@@ -1,5 +1,10 @@
 import React, { useContext } from 'react';
+import {
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label,
+} from 'recharts';
+
 import globalContext from '../../context/globalContext';
+import Dot from '../../components/Dot';
 
 const index = () => {
   const GlobalContext = useContext(globalContext);
@@ -10,10 +15,10 @@ const index = () => {
     if (!data.wakatime && !data.github) {
       getData();
     }
-    getContributions('a712dbd48676f850f16edfdfdc9fb2467c66dd83', 'rukeni')
+    getContributions('3fc693afb6e7a54f8476ed04a9e69e5fa213ba29', 'rukeni')
       .then((gql) => {
         console.log('gql gql:>> ', gql);
-      });
+      }).catch((e) => console.log('gql network error', e));
     // const res = Axios.get('https://api.github.com/users/rukeni')
     //   .then((c) => {
     //     console.log(c);
@@ -36,17 +41,32 @@ const index = () => {
   //           }
   return (
     <>
-      <div className="relative md:ml-64 bg-gray-200">
+      <div className="relative md:ml-64 w-full">
         DashBoard
         <div>
           { data.wakatime && data.wakatime.map((el, idx) => (
             // eslint-disable-next-line react/no-array-index-key
             <div key={idx}>
-              <p>{ el.grand_total.digital }</p>
-              <p>{ el.range.date }</p>
+              <p>{ el.totalTime }</p>
+              <p>{ el.date }</p>
             </div>
 
-          ))}
+          )) }
+          <LineChart
+            width={600}
+            height={300}
+            data={data.wakatime}
+            margin={{
+              top: 5, right: 20, left: 10, bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="1 1" />
+            <XAxis dataKey="date" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line type="monotone" dataKey="코딩시간" stroke="#8884d8" dot={Dot} />
+          </LineChart>
         </div>
       </div>
     </>

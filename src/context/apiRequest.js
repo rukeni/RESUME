@@ -10,12 +10,17 @@ export const readData = async (dispatch) => {
     if (err) {
       console.error(err.message);
     } else {
-      console.log(stats);
+      console.log('stats.data', stats.data);
       console.log('데이터 요청 성공');
+      const result = stats.data.map((el) => ({
+        코딩시간: el.grand_total.hours + +(el.grand_total.minutes / 60).toFixed(1),
+        date: el.range.date,
+      }));
+      console.log('result :>> ', result);
       dispatch({
         type: SET_DATA,
         payload: {
-          data: stats.data,
+          data: result,
           property: 'wakatime',
         },
       });
@@ -62,6 +67,3 @@ export const getContributions = async (token, username) => {
   const data = await response.json();
   return data;
 };
-
-const data = getContributions('token', 'MeiK2333');
-console.log('data gql :>> ', data);
