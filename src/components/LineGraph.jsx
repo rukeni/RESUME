@@ -7,10 +7,9 @@ import Dot from './Dot';
 
 const LineGraph = ({ data }) => (
   <ResponsiveContainer
-    width="99%"
+    width="85%"
     aspect={3}
     minWidth="300"
-    className="flex bg-gray-300 flex-1"
   >
     <LineChart
       data={data}

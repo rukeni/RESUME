@@ -19,13 +19,11 @@ const index = () => {
   }, []);
   return (
     <>
-      <div className="flex-1 w-full flex justify-center items-center">
-        <div className="flex-5">d</div>
-        {/* <div className="w-2/3"> */}
+      <div className="flex-1 w-full flex justify-end items-center min-h-screen">
         {/* TODO: 눌렀을때 해당 깃허브 히스토리와 연동하는건 어떨까? */ }
-        <LineGraph data={data.wakatime} />
-        {/* </div> */}
-        <div className="flex-2">d</div>
+        <div className="w-2/3 flex justify-center items-center">
+          <LineGraph data={data.wakatime} />
+        </div>
       </div>
     </>
   );

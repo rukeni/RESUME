@@ -29,6 +29,7 @@ ReactDOM.render(
         <PageContainer
           isLightMode={isLightMode}
         >
+
           { isLogin === true
             ? (
               <Router>
@@ -38,16 +39,18 @@ ReactDOM.render(
                   isLogin={isLogin}
                   LoginName={login.id}
                 />
-                <SideBar />
-                <Redirect to="/" />
-                <Route exact path="/" component={Dashboard} />
-                <Route exact path="/email" component={Email} />
-                <Route path="/dashboard">
-                  <Dashboard />
-                </Route>
-                <Route path="/portfolio">
-                  <Portfolio />
-                </Route>
+                <div className="flex w-full">
+                  <SideBar />
+                  <Redirect to="/" />
+                  <Route exact path="/" component={Dashboard} />
+                  <Route exact path="/email" component={Email} />
+                  <Route path="/dashboard">
+                    <Dashboard />
+                  </Route>
+                  <Route path="/portfolio">
+                    <Portfolio />
+                  </Route>
+                </div>
               </Router>
             )
             : (
