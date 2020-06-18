@@ -16,6 +16,7 @@ import Login from './pages/Login';
 import Portfolio from './pages/Portfolio';
 import Dashboard from './pages/Dashboard';
 import Email from './pages/Email';
+import SideBar from './components/SideBar';
 
 console.log('%c 리액트 컴포넌트 생성', 'color: blue; font-size: 1.5rem;');
 console.time('앱 시작시간');
@@ -37,6 +38,7 @@ ReactDOM.render(
                   isLogin={isLogin}
                   LoginName={login.id}
                 />
+                <SideBar />
                 <Redirect to="/" />
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/email" component={Email} />
@@ -56,6 +58,7 @@ ReactDOM.render(
                   isLogin={isLogin}
                   LoginName={login.id}
                 />
+                <SideBar />
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/email" component={Email} />
                 <Route exact path="/login" component={Login} />
