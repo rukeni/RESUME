@@ -6,9 +6,17 @@ import {
 import Dot from './Dot';
 
 const LineGraph = ({ data }) => (
-  <ResponsiveContainer width="99%" aspect={3} minWidth="300">
+  <ResponsiveContainer
+    width="99%"
+    aspect={3}
+    minWidth="300"
+    className="flex bg-gray-300 flex-1"
+  >
     <LineChart
       data={data}
+      margin={{
+        top: 20, right: 10, left: 10, bottom: 20,
+      }}
     >
       <CartesianGrid strokeDasharray="1 1" />
       <XAxis dataKey="date" />
