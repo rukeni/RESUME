@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: './',
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -54,7 +54,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: './',
+              publicPath: '/',
             },
           },
           { loader: 'css-loader', options: { importLoaders: 1 } },
