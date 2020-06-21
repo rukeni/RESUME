@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  HashRouter as Router, Route, Redirect, useLocation, Switch,
+  HashRouter as Router, Route, Redirect,
 } from 'react-router-dom';
 
 import './styles/tailwind.css';
@@ -22,12 +22,6 @@ import SideBar from './components/SideBar';
 
 console.log('%c 리액트 컴포넌트 생성', 'color: blue; font-size: 1.5rem;');
 console.time('앱 시작시간');
-const getPathname = () => {
-  const location = useLocation();
-  React.useEffect(() => {
-    console.log('location :>> ', location);
-  }, [location]);
-};
 
 const App = () => (
   <GlobalProvider>

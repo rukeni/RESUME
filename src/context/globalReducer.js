@@ -1,6 +1,6 @@
 import produce from 'immer';
 import {
-  SET_DATA, SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_URL, SET_PATHNAME,
+  SET_DATA, SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_PATHNAME,
 } from './types';
 
 export default (state, action) => produce(state, (draft) => {
@@ -40,11 +40,6 @@ export default (state, action) => produce(state, (draft) => {
       } else {
         draft.isHover = false;
       }
-      break;
-    }
-    case SET_URL:
-    {
-      draft.url = state.url + action.payload;
       break;
     }
     case SET_PATHNAME:

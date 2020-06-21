@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import GlobalContext from './globalContext';
 import globalReducer from './globalReducer';
 import {
-  SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_URL, SET_PATHNAME,
+  SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_PATHNAME,
 } from './types';
 import { readData, getContributions } from './apiRequest';
 
@@ -23,7 +23,6 @@ const GlobalState = ({ children }) => {
     },
     isLogin: false,
     isHover: false,
-    url: '/resume',
     pathname: '',
   };
   const [state, dispatch] = useReducer(globalReducer, initialState);
