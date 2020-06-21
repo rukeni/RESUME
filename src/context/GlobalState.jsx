@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import GlobalContext from './globalContext';
 import globalReducer from './globalReducer';
 import {
-  SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_URL,
+  SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_URL, SET_PATHNAME,
 } from './types';
 import { readData, getContributions } from './apiRequest';
 
@@ -24,12 +24,24 @@ const GlobalState = ({ children }) => {
     isLogin: false,
     isHover: false,
     url: '/resume',
+    pathname: '',
   };
   const [state, dispatch] = useReducer(globalReducer, initialState);
 
-  const getData = () => {
+  const getData = (pathname) => {
     console.log('getData까지는 옴');
     readData(dispatch);
+    dispatch({
+      type: SET_PATHNAME,
+      payload: pathname,
+    });
+  };
+  const setPathname = (pathname) => {
+    console.log('pathname :>> ', pathname);
+    dispatch({
+      type: SET_PATHNAME,
+      payload: pathname,
+    });
   };
   const handleChange = (e) => {
     const { property } = e.target.dataset;
@@ -48,7 +60,7 @@ const GlobalState = ({ children }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    const { type, url } = e.currentTarget.dataset;
+    const { type, href } = e.currentTarget.dataset;
 
     switch (type) {
       case 'toggle':
@@ -65,8 +77,8 @@ const GlobalState = ({ children }) => {
       case 'navigate':
         console.log('navigate');
         dispatch({
-          type: SET_URL,
-          payload: url,
+          type: SET_PATHNAME,
+          payload: href,
         });
         break;
       default:
@@ -117,7 +129,9 @@ const GlobalState = ({ children }) => {
         login: state.login,
         isLogin: state.isLogin,
         isHover: state.isHover,
+        pathname: state.pathname,
         getData,
+        setPathname,
         getContributions,
         handleClick,
         handleChange,

@@ -6,3 +6,4 @@ export const SET_SLIDER = 'SET_SLIDER';
 export const SET_IS_LOGIN = 'SET_IS_LOGIN';
 export const SET_IS_HOVER = 'SET_IS_HOVER';
 export const SET_URL = 'SET_URL';
+export const SET_PATHNAME = 'SET_PATHNAME';

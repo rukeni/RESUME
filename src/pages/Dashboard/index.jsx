@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 
+import { useLocation } from 'react-router-dom';
 import globalContext from '../../context/globalContext';
 import LineGraph from '../../components/LineGraph';
 
@@ -8,15 +9,20 @@ const index = () => {
   const {
     data, getData, getContributions,
   } = GlobalContext;
+  const location = useLocation();
   React.useEffect(() => {
+    const getPathname = () => {
+      console.log('location :>> ', location);
+    };
     if (!data.wakatime && !data.github) {
-      getData();
+      getData(location.pathname);
+      getPathname();
     }
     getContributions('3fc693afb6e7a54f8476ed04a9e69e5fa213ba29', 'rukeni')
       .then((gql) => {
         console.log('gql gql:>> ', gql);
       }).catch((e) => console.log('gql network error', e));
-  }, []);
+  }, [location]);
   return (
     <>
       <div className="flex-1 w-full flex justify-end items-center min-h-screen">

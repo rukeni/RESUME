@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter as Router, Route, Redirect } from 'react-router-dom';
+import {
+  HashRouter as Router, Route, Redirect, useLocation, Switch,
+} from 'react-router-dom';
 
 import './styles/tailwind.css';
 
@@ -20,11 +22,18 @@ import SideBar from './components/SideBar';
 
 console.log('%c 리액트 컴포넌트 생성', 'color: blue; font-size: 1.5rem;');
 console.time('앱 시작시간');
-ReactDOM.render(
+const getPathname = () => {
+  const location = useLocation();
+  React.useEffect(() => {
+    console.log('location :>> ', location);
+  }, [location]);
+};
+
+const App = () => (
   <GlobalProvider>
     <Global.Consumer>
       { ({
-        isLogin, isLightMode, handleClick, login,
+        isLogin, isLightMode, handleClick, login, pathname,
       }) => (
         <PageContainer
           isLightMode={isLightMode}
@@ -40,7 +49,7 @@ ReactDOM.render(
                   LoginName={login.id}
                 />
                 <div className="flex w-full">
-                  <SideBar />
+                  <SideBar pathname={pathname} />
                   <Redirect to="/" />
                   <Route exact path="/" component={Dashboard} />
                   <Route exact path="/email" component={Email} />
@@ -65,13 +74,19 @@ ReactDOM.render(
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/email" component={Email} />
                 <Route exact path="/login" component={Login} />
+                <Route path="/portfolio">
+                  <Portfolio />
+                </Route>
               </Router>
             ) }
           <Footer />
         </PageContainer>
       )}
     </Global.Consumer>
-  </GlobalProvider>,
+  </GlobalProvider>
+);
+ReactDOM.render(
+  <App />,
   document.getElementById('root'),
 );
 console.timeEnd('앱 시작시간');
