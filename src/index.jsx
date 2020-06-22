@@ -21,6 +21,7 @@ import Portfolio from './pages/Portfolio';
 import Dashboard from './pages/Dashboard';
 import Email from './pages/Email';
 import Resume from './pages/Resume';
+import EmailForm from './components/EmailForm';
 
 console.log('%c 리액트 컴포넌트 생성', 'color: blue; font-size: 1.5rem;');
 console.time('앱 시작시간');
@@ -87,18 +88,21 @@ const App = () => (
   <GlobalProvider>
     <Global.Consumer>
       { ({
-        isLogin, isLightMode, handleClick, login, pathname,
+        isLogin, isLightMode, isContact, handleClick, login, pathname,
       }) => (
         <PageContainer
           isLightMode={isLightMode}
+          isContact={isContact}
         >
           <Routers
             isLogin={isLogin}
             id={login.id}
             handleClick={handleClick}
             pathname={pathname}
+            isLightMode={isLightMode}
           />
-          <Footer />
+          <Footer isContact={isContact} handleClick={handleClick} />
+          <EmailForm isContact={isContact} />
         </PageContainer>
       )}
     </Global.Consumer>

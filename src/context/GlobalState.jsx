@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import GlobalContext from './globalContext';
 import globalReducer from './globalReducer';
 import {
-  SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_PATHNAME,
+  SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_PATHNAME, SET_MODAL,
 } from './types';
 import { readData, getContributions } from './apiRequest';
 
@@ -23,6 +23,7 @@ const GlobalState = ({ children }) => {
     },
     isLogin: false,
     isHover: false,
+    isContact: false,
     pathname: '',
   };
   const [state, dispatch] = useReducer(globalReducer, initialState);
@@ -80,6 +81,11 @@ const GlobalState = ({ children }) => {
           payload: href,
         });
         break;
+      case 'setModal':
+        dispatch({
+          type: SET_MODAL,
+        });
+        break;
       default:
         break;
     }
@@ -128,6 +134,7 @@ const GlobalState = ({ children }) => {
         login: state.login,
         isLogin: state.isLogin,
         isHover: state.isHover,
+        isContact: state.isContact,
         pathname: state.pathname,
         getData,
         setPathname,

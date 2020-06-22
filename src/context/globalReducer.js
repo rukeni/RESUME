@@ -1,6 +1,6 @@
 import produce from 'immer';
 import {
-  SET_DATA, SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_PATHNAME,
+  SET_DATA, SET_IS_LIGHT_MODE, SET_AUTH, SET_IS_LOGIN, SET_IS_HOVER, SET_PATHNAME, SET_MODAL,
 } from './types';
 
 export default (state, action) => produce(state, (draft) => {
@@ -46,6 +46,11 @@ export default (state, action) => produce(state, (draft) => {
     {
       console.log('action.payload :>> ', action.payload);
       draft.pathname = action.payload;
+      break;
+    }
+    case SET_MODAL:
+    {
+      draft.isContact = !state.isContact;
       break;
     }
     default:
