@@ -88,7 +88,8 @@ const App = () => (
   <GlobalProvider>
     <Global.Consumer>
       { ({
-        isLogin, isLightMode, isContact, handleClick, login, pathname,
+        isLogin, isLightMode, isContact, login, pathname,
+        handleClick, handleBlur,
       }) => (
         <PageContainer
           isLightMode={isLightMode}
@@ -102,7 +103,7 @@ const App = () => (
             isLightMode={isLightMode}
           />
           <Footer isContact={isContact} handleClick={handleClick} />
-          <EmailForm isContact={isContact} />
+          <EmailForm isContact={isContact} handleBlur={handleBlur} />
         </PageContainer>
       )}
     </Global.Consumer>

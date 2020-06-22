@@ -18,5 +18,6 @@ const PageContainer = ({ children, isLightMode, isContact }) => (
 PageContainer.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
   isLightMode: PropTypes.bool.isRequired,
+  isContact: PropTypes.bool.isRequired,
 };
 export default PageContainer;

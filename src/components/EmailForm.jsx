@@ -3,7 +3,7 @@ import React from 'react';
 import emailjs from 'emailjs-com';
 import PropTypes from 'prop-types';
 
-const EmailForm = ({ isContact }) => {
+const EmailForm = ({ isContact, handleBlur }) => {
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -14,7 +14,6 @@ const EmailForm = ({ isContact }) => {
         console.log(error.text);
       });
   };
-
   return (
     <>
       { isContact ? (
@@ -31,10 +30,11 @@ const EmailForm = ({ isContact }) => {
             }}
             className="bg-indigo-500"
             onSubmit={sendEmail}
+            onBlur={handleBlur}
           >
             <input type="hidden" name="contact_number" />
             <label>Name</label>
-            <input type="text" name="user_name" />
+            <input type="text" ref={(input) => input && input.focus()} name="user_name" />
             <label>Email</label>
             <input type="email" name="user_email" />
             <label>Message</label>
@@ -50,5 +50,6 @@ const EmailForm = ({ isContact }) => {
 
 EmailForm.propTypes = {
   isContact: PropTypes.bool.isRequired,
+  handleBlur: PropTypes.func.isRequired,
 };
 export default EmailForm;

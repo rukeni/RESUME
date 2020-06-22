@@ -126,6 +126,12 @@ const GlobalState = ({ children }) => {
     console.log('스크롤 이벤트 발생');
     console.log('window.scrollTop :>> ', window.scrollTop);
   };
+  const handleBlur = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: SET_MODAL,
+    });
+  };
   return (
     <GlobalContext.Provider
       value={{
@@ -145,6 +151,7 @@ const GlobalState = ({ children }) => {
         handleMouseOver,
         handleMouseOut,
         handleScroll,
+        handleBlur,
       }}
     >
       {children}
