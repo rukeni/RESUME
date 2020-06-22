@@ -7,7 +7,7 @@ const Footer = ({ isContact, handleClick }) => (
       type="button"
       onClick={handleClick}
       data-type="setModal"
-      className="z-50"
+      className="z-50 p-2 w-20 rounded-md outline-none bg-indigo-500 text-white"
     >
       { isContact === true ? '끄기' : '연락하기'}
     </button>

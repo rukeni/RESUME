@@ -18,7 +18,7 @@ const index = () => {
   `;
   return (
     <div className="flex-1 flex flex-col w-3/4 flex-wrap pl-20 justify-end items-center">
-      <ReactMarkDown className="p-10 font-bold" source={markdown} />
+      <ReactMarkDown className="p-10 font-bold flex flex-col justify-center items-center" source={markdown} />
     </div>
   );
 };
