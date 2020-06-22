@@ -3,7 +3,7 @@ import React from 'react';
 import emailjs from 'emailjs-com';
 import PropTypes from 'prop-types';
 
-const EmailForm = ({ isContact, handleBlur }) => {
+const EmailForm = ({ isContact }) => {
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -23,6 +23,8 @@ const EmailForm = ({ isContact, handleBlur }) => {
               width: '500px',
               height: '500px',
               position: 'fixed',
+              display: 'flex',
+              flexDirection: 'column',
               top: '10%',
               right: '30%',
               margin: '0 auto',
@@ -30,7 +32,6 @@ const EmailForm = ({ isContact, handleBlur }) => {
             }}
             className="bg-indigo-500"
             onSubmit={sendEmail}
-            onBlur={handleBlur}
           >
             <input type="hidden" name="contact_number" />
             <label>Name</label>
@@ -50,6 +51,5 @@ const EmailForm = ({ isContact, handleBlur }) => {
 
 EmailForm.propTypes = {
   isContact: PropTypes.bool.isRequired,
-  handleBlur: PropTypes.func.isRequired,
 };
 export default EmailForm;

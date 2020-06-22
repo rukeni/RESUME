@@ -60,8 +60,7 @@ const GlobalState = ({ children }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    const { type, href } = e.currentTarget.dataset;
-
+    const { type, href, position } = e.currentTarget.dataset;
     switch (type) {
       case 'toggle':
         console.log('토글발생');
@@ -82,9 +81,20 @@ const GlobalState = ({ children }) => {
         });
         break;
       case 'setModal':
+        console.log('position :>> ', position);
         dispatch({
           type: SET_MODAL,
+          payload: !state.isContact,
         });
+        break;
+      case 'blur':
+        if (e.target === e.currentTarget) {
+          console.log('blur');
+          dispatch({
+            type: SET_MODAL,
+            payload: false,
+          });
+        }
         break;
       default:
         break;
@@ -127,10 +137,23 @@ const GlobalState = ({ children }) => {
     console.log('window.scrollTop :>> ', window.scrollTop);
   };
   const handleBlur = (e) => {
-    e.preventDefault();
-    dispatch({
-      type: SET_MODAL,
-    });
+    // e.preventDefault();
+    console.log('blur');
+    if (e.target === e.currentTarget) {
+      dispatch({
+        type: SET_MODAL,
+        payload: false,
+      });
+    }
+  };
+  const handleFocus = (e) => {
+    // e.preventDefault();
+    if (e.target === e.currentTarget) {
+      dispatch({
+        type: SET_MODAL,
+        payload: true,
+      });
+    }
   };
   return (
     <GlobalContext.Provider
@@ -152,6 +175,7 @@ const GlobalState = ({ children }) => {
         handleMouseOut,
         handleScroll,
         handleBlur,
+        handleFocus,
       }}
     >
       {children}

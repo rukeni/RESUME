@@ -50,7 +50,7 @@ export default (state, action) => produce(state, (draft) => {
     }
     case SET_MODAL:
     {
-      draft.isContact = !state.isContact;
+      draft.isContact = action.payload;
       break;
     }
     default:
