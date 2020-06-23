@@ -20,13 +20,13 @@ const EmailForm = ({ isContact }) => {
         <>
           <form
             style={{
-              width: '500px',
-              height: '500px',
+              width: '700px',
+              height: '700px',
               position: 'fixed',
               display: 'flex',
               flexDirection: 'column',
-              top: '10%',
-              right: '30%',
+              top: '5%',
+              right: '10%',
               margin: '0 auto',
               transition: 'all .5s ease-in-out',
             }}

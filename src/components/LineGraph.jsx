@@ -7,9 +7,10 @@ import Dot from './Dot';
 
 const LineGraph = ({ data }) => (
   <ResponsiveContainer
-    width="85%"
+    width="99%"
     aspect={3}
-    minWidth="300"
+    minWidth="500"
+    minHeight="500"
   >
     <LineChart
       data={data}
