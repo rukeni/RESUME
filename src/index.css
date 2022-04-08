@@ -1,3 +1,56 @@
+body {
+  /* font-family: 'Nanum Gothic Coding', monospace; */
+  font-family: Oswald, Helvetica, sans-serif;
+}
+
+.gg {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.sidebar-item {
+  font-family: Oswald, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  outline: none;
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: 0.3s;
+}
+
+.sidebar-item:hover::after {
+  background-color: #e5e5e5;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 100%;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  width: 3px;
+}
+
+.sidebar-item::after {
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 100%;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  width: 3px;
+}
+
+.sidebar-item:active::after {
+  background-color: hsl(var(--p) / var(--tw-bg-opacity));
+}
+
+.sidebar-item:focus::after {
+  background-color: hsl(var(--p) / var(--tw-bg-opacity));
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
