@@ -4,6 +4,7 @@ import logo from './assets/logo.svg';
 import music from './assets/mercedes.mp3';
 import styles from './App.module.css';
 import Sidebar from './components/sidebar/Sidebar';
+import Video from './components/video/Video';
 
 const App: Component = () => {
 	return (
@@ -20,6 +21,7 @@ const App: Component = () => {
 					<a class='btn' href='https://github.com/solidjs/solid' target='_blank' rel='noopener noreferrer'>
 						Learn Solid
 					</a>
+					<Video />
 					<p class='gg'>
 						한글 테스트는 아주 쉽지요용한글 테스트는 아주 쉽지요용한글 테스트는 아주 쉽지요용한글 테스트는 아주 쉽지요용한글 테스트는 아주 쉽지요용한글 테스트는 아주 쉽지요용한글 테스트는 아주 쉽지요용
 					</p>

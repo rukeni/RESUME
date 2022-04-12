@@ -51,6 +51,19 @@ body {
   background-color: hsl(var(--p) / var(--tw-bg-opacity));
 }
 
+.video:after {
+  position: absolute;
+  content: 'PLAY VIDEO';
+  letter-spacing: 4px;
+  bottom: -22px;
+  color: black;
+}
+
+.video:hover:after {
+  background: black;
+  color: white;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
