@@ -1,12 +1,14 @@
-import type { Component } from 'solid-js';
-import Photo from './Photo';
+import { Component } from 'solid-js';
+import Profile from './Profile';
+import SidebarItem from './SidebarItem';
 
-const Sidebar:Component = () => {
-  return (
-    <div class='w-64'>
-      <Photo />
-    </div>
-  )
-}
+const Sidebar: Component = () => {
+	return (
+		<aside class='w-[330px] leading-4 bg-white text-stone-500 flex flex-col justify-start items-center'>
+			<Profile />
+      <SidebarItem />
+		</aside>
+	);
+};
 
-export default Sidebar
+export default Sidebar;

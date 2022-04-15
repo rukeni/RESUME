@@ -1,7 +1,13 @@
-const Photo = () => {
-  return (
-    <div class='max-w-[110px] max-h-[110px] relative'><img class="mask mask-decagon absolute w-full h-full top-0 left-0" src="/src/my-profile.jpeg" /></div>
-  )
-}
+import myProfile from '../../assets/my-profile.jpeg';
 
-export default Photo
+const Photo = () => {
+	return (
+		<div class='avatar mt-10'>
+			<div class='w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2'>
+				<img src={myProfile} />
+			</div>
+		</div>
+	);
+};
+
+export default Photo;
