@@ -36,10 +36,11 @@ const App: Component = () => {
 		if(isPlay() === true) {
 			let prevValue = -1;
 			const result = audioContext.getOutputTimestamp().contextTime;
-			if(Number(result) - prevValue === 1) {
+			// if(Math.floor(Number(result)) - prevValue === 1) {
 				console.log('result.contextTime', Math.floor(Number(result)));
 				prevValue++
-			}
+				document.documentElement.dataset.theme = themes[Math.floor(Number(result)) % 29]
+			// }
 			requestId = requestAnimationFrame(getTime);
 		} else {
 			console.log('캔슬')
