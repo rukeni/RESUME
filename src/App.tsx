@@ -9,6 +9,7 @@ import { getRandomInt } from './app/helper';
 import gsap from 'gsap';
 
 const App: Component = () => {
+	const themes = ["light", "dark", "cupcake", "bumblebee", "emerald", "corporate", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk", "autumn", "business", "acid", "lemonade", "night", "coffee", "winter"]
 	// 레거시를 위한 설정
 	const AudioContext = window.AudioContext || window.webkitAudioContext;
 
@@ -22,8 +23,9 @@ const App: Component = () => {
 	const [audio, setAudio] = createSignal<AudioContext>();
 	const [isPlay, setIsPlay] = createSignal(false);
 	const handleRandomNumber = () => {
-		const targetNumber = getRandomInt(0,10);
+		const targetNumber = getRandomInt(0,29);
 		setNumber(targetNumber);
+		document.documentElement.dataset.theme = themes[number()]
 	}
 
 	const handleAudioPlay = () => {
