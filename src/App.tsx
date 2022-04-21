@@ -164,33 +164,33 @@ const App: Component = () => {
     <div class="flex h-screen w-full transition-all duration-[3000ms]">
       <Sidebar />
 
-      <header class="flex-1 max-w-[calc(100%-330px)] bg-[#f5f5f5] pl-4" id="header">
+      <header class="flex-1 max-w-[calc(100%-330px)] pl-4 m-auto" id="header">
         <div>
-          <audio
+
+          {/* <Video /> */}
+
+
+          {/* <Stat /> */}
+          <div class="flex w-full h-full flex-col justify-center items-center">
+            <div class="flex w-full h-full">
+              <div class="card rounded-box w-[40vw] h-[30vh] place-items-center bg-primary">
+							<audio
             src={music}
-            controls
             crossorigin="anonymous"
             data-playing="false"
           />
-          <button class="btn w-24" onClick={handleAudioPlay}>
+					<div class='flex justify-center items-center'>
+          <button class="btn w-24 mr-3 mt-3" onClick={handleAudioPlay}>
             {isPlay() ? "stop" : "a labor song!"}
           </button>
-          <button class="btn bg-slate-200" onClick={handleAudioTime}>
-            현재 시간은
-          </button>
-          <Video />
-
-          <button class="btn" onClick={handleRandomNumber}>
+					<button class="btn mt-3" onClick={handleRandomNumber}>
             랜덤 넘버{number()}
           </button>
-          {/* <Stat /> */}
-          <div class="flex w-full h-full flex-col">
-            <div class="flex w-full h-full">
-              <div class="card rounded-box w-[40vw] h-[30vh] place-items-center bg-base-300">
-                content
+					</div>
+
               </div>
               <div class="divider divider-horizontal">OR</div>
-              <div class="card rounded-box w-[40vw] h-[30vh] place-items-center bg-base-200">
+              <div class="card rounded-box w-[40vw] h-[30vh] place-items-center bg-secondary">
                 content
               </div>
             </div>
