@@ -1,79 +1,79 @@
 body::-webkit-scrollbar-track {
-	background-color: #00cc99;
-	border-radius: 50px;
+  background-color: #00cc99;
+  border-radius: 50px;
 }
 
 body::-webkit-scrollbar-thumb {
-	background: #6600ff;
-	border-radius: 50px;
+  background: #6600ff;
+  border-radius: 50px;
 }
 
 body {
-	/* font-family: 'Nanum Gothic Coding', monospace; */
-	font-family: Oswald, Helvetica, sans-serif;
-	scrollbar-color: #6969dd #e0e0e0;
-	scrollbar-width: thin;
+  /* font-family: 'Nanum Gothic Coding', monospace; */
+  font-family: Oswald, Helvetica, sans-serif;
+  scrollbar-color: #6969dd #e0e0e0;
+  scrollbar-width: thin;
 }
 
 .gg {
-	font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 .sidebar-item {
-	font-family: Oswald, Helvetica, sans-serif;
-	font-size: 15px;
-	font-weight: 500;
-	line-height: 24px;
-	outline: none;
-	padding: 10px 20px;
-	position: relative;
-	text-align: center;
-	text-decoration: none;
-	transition-duration: 0.3s;
+  font-family: Oswald, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  outline: none;
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition-duration: 0.3s;
 }
 
 .sidebar-item:hover::after {
-	background-color: #e5e5e5;
-	bottom: 0;
-	content: "";
-	display: block;
-	height: 100%;
-	margin: 0 auto;
-	position: absolute;
-	right: 0;
-	width: 3px;
+  background-color: #e5e5e5;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 100%;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  width: 3px;
 }
 
 .sidebar-item::after {
-	bottom: 0;
-	content: "";
-	display: block;
-	height: 100%;
-	margin: 0 auto;
-	position: absolute;
-	right: 0;
-	width: 3px;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 100%;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  width: 3px;
 }
 
 .sidebar-item:active::after {
-	background-color: hsl(var(--p) / var(--tw-bg-opacity));
+  background-color: hsl(var(--p) / var(--tw-bg-opacity));
 }
 
 .sidebar-item:focus::after {
-	background-color: hsl(var(--p) / var(--tw-bg-opacity));
+  background-color: hsl(var(--p) / var(--tw-bg-opacity));
 }
 
 .video:after {
-	position: absolute;
-	content: 'PLAY VIDEO';
-	letter-spacing: 4px;
-	bottom: -22px;
-	color: black;
+  position: absolute;
+  content: "PLAY VIDEO";
+  letter-spacing: 4px;
+  bottom: -22px;
+  color: black;
 }
 
 .video:hover:after {
-	background: black;
-	color: white;
+  background: black;
+  color: white;
 }
 
 @tailwind base;

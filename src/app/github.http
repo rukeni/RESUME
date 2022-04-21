@@ -1,0 +1,8 @@
+GET https://api.github.com/zen
+
+### 깃헙 정보 가져오기 예제
+GET https://api.github.com/users/defunkt
+
+### 내 아이디 깃헙 정보 가져오기
+GET https://api.github.com/users/rukeni
+Authorization: "token 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"
